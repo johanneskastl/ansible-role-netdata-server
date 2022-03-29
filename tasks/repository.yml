@@ -1,0 +1,24 @@
+---
+# netdata-server/tasks/repository.yml
+
+- name: 'Import the Netdata Edge GPG key'
+  rpm_key:
+    key: 'https://packagecloud.io/netdata/netdata-edge/gpgkey'
+    state: 'present'
+
+- name: 'Import the Netdata Edge GPG key'
+  rpm_key:
+    key: 'https://packagecloud.io/netdata/netdata-repoconfig/gpgkey'
+    state: 'present'
+
+- name: 'Add the Netdata Repoconfig repository'
+  template:
+    src: 'netdata-edge.repo.j2'
+    dest: '/etc/zypp/repos.d/netdata-edge.repo'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify:
+    - 'openSUSE/SUSE: zypper refresh'
+  when:
+    - 'ansible_os_family == "Suse" or ansible_os_family == "openSUSE MicroOS"'
