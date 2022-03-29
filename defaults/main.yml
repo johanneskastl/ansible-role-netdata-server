@@ -1,0 +1,4 @@
+---
+# netdata-server/defaults/main.yml
+
+systemd_unit_name: 'netdata.service'
