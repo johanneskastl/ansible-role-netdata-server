@@ -1,0 +1,25 @@
+---
+# netdata-server/tasks/main.yml
+
+- name: 'Populate the package name variable depending on the OS'
+  include: package_name.yml
+
+- name: 'Add the netdata repository'
+  include: repository.yml
+
+- meta: flush_handlers
+
+- name: 'Install the packages'
+  package:
+    name: "{{ netdata_server_packages }}"
+    state: 'present'
+
+- name: 'Start the service'
+  service:
+    name: 'netdata'
+    state: 'started'
+
+- name: 'Enable the service'
+  service:
+    name: 'netdata'
+    enabled: 'true'
