@@ -16,10 +16,10 @@
 
 - name: 'Start the service'
   service:
-    name: 'netdata'
+    name: "{{ systemd_unit_name }}"
     state: 'started'
 
 - name: 'Enable the service'
   service:
-    name: 'netdata'
+    name: "{{ systemd_unit_name }}"
     enabled: 'true'
