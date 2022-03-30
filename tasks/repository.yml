@@ -18,6 +18,7 @@
     state: 'present'
   when:
     - 'ansible_os_family == "Suse" or ansible_os_family == "openSUSE MicroOS"'
+    - 'not (use_stable_packages | bool)'
 
 - name: 'Add the Netdata Repoconfig repository'
   template:
@@ -30,3 +31,4 @@
     - 'openSUSE/SUSE: zypper refresh'
   when:
     - 'ansible_os_family == "Suse" or ansible_os_family == "openSUSE MicroOS"'
+    - 'not (use_stable_packages | bool)'
