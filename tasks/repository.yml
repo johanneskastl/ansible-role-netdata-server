@@ -8,6 +8,10 @@
   when:
     - 'ansible_os_family == "Suse" or ansible_os_family == "openSUSE MicroOS"'
 
+#
+# Edge Repository containing nightly builds
+#
+
 - name: 'Import the Netdata Edge GPG key'
   rpm_key:
     key: 'https://packagecloud.io/netdata/netdata-edge/gpgkey'
