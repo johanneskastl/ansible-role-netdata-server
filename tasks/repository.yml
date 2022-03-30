@@ -1,7 +1,7 @@
 ---
 # netdata-server/tasks/repository.yml
 
-- name: 'Import the Netdata Edge GPG key'
+- name: 'Import the Netdata Repoconfig GPG key'
   rpm_key:
     key: 'https://packagecloud.io/netdata/netdata-repoconfig/gpgkey'
     state: 'present'
