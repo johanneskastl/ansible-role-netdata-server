@@ -10,3 +10,13 @@
     mode: '0644'
   notify:
     - 'Restart the netdata service'
+
+- name: 'Add web section to netdata.conf'
+  blockinfile:
+    path: '/etc/netdata/netdata.conf'
+    block: |
+      [web]
+          mode = static-threaded
+          accept a streaming request every seconds = 0
+  notify:
+    - 'Restart the netdata service'
