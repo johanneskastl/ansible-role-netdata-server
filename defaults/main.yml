@@ -4,3 +4,5 @@
 systemd_unit_name: 'netdata.service'
 
 use_stable_packages: 'true'
+
+receive_streams: 'false'
