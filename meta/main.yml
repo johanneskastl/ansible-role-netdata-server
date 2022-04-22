@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: 'netdata-server'
+  namespace: 'johanneskastl'
   author: 'Johannes Kastl'
   description: 'Install and configure a netdata server instance'
   company: 'B1 Systems GmbH'
