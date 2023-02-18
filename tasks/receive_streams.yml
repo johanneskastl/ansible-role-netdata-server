@@ -2,7 +2,7 @@
 # netdata-server/tasks/receive_streams.yml
 
 - name: 'Create the streams.conf'
-  template:
+  ansible.builtin.template:
     src: 'stream.conf.j2'
     dest: '/etc/netdata/stream.conf'
     owner: 'root'
@@ -12,7 +12,7 @@
     - 'Restart the netdata service'
 
 - name: 'Add web section to netdata.conf'
-  blockinfile:
+  ansible.builtin.blockinfile:
     path: '/etc/netdata/netdata.conf'
     block: |
       [web]
