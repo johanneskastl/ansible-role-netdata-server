@@ -2,10 +2,10 @@
 # netdata-server/tasks/main.yml
 
 - name: 'Populate the package name variable depending on the OS'
-  ansible.builtin.include: package_name.yml
+  ansible.builtin.include_tasks: package_name.yml
 
 - name: 'Add the netdata repository'
-  ansible.builtin.include: repository.yml
+  ansible.builtin.include_tasks: repository.yml
 
 - name: 'Flush handlers to trigger refresh of repository'
   ansible.builtin.meta: flush_handlers
@@ -16,7 +16,7 @@
     state: 'present'
 
 - name: 'Include tasks to create stream.conf if desired'
-  ansible.builtin.include: receive_streams.yml
+  ansible.builtin.include_tasks: receive_streams.yml
   when:
     - 'receive_streams | bool'
 
