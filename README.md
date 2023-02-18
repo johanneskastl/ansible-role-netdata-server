@@ -23,7 +23,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-        - { role: 'johanneskastl.netdata-server' }
+        - role: 'johanneskastl.netdata-server'
 
 License
 -------
