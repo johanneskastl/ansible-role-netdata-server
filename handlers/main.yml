@@ -1,7 +1,7 @@
 ---
 # netdata-server/handlers/main.yml
 
-- name: 'openSUSE/SUSE: zypper refresh'
+- name: 'Run zypper refresh on openSUSE/SUSE'
   community.general.zypper_repository:
     name: '*'
     runrefresh: 'true'
